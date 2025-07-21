@@ -1,5 +1,6 @@
 # 🚀 Название проекта  
-Автотесты на Python для API (httpx) и UI (Playwright) 
+Автотесты на Python для API (httpx) и UI (Playwright)  
+Allure-Report: https://zomlik.github.io/pet-project-autotests/
 
 ## 🛠 Технологии
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
