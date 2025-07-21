@@ -1,0 +1,2 @@
+2025-07-21 06:04:46,148 | HTTP_CLIENT | INFO | Make POST request to http://localhost:9000/auth
+2025-07-21 06:04:46,153 | HTTP_CLIENT | INFO | Response 405 Not Allowed from http://localhost:9000/auth
