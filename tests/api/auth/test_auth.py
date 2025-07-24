@@ -5,7 +5,8 @@ import pytest
 
 from api.taiga.users.public_users_client import public_users_client
 from models.auth.auth_model import AuthNormalRequestModel
-from utils.allure import Epic, Feature, Tag
+from utils.allure_constants import Epic, Feature, Tag
+from utils.asserts import assert_status_code
 
 
 @allure.epic(Epic.USERS)
@@ -18,10 +19,7 @@ class TestAuth:
     @allure.title("Авторизация пользователя с не валидными данными")
     @allure.testcase("ID-171")
     def test_user_login(self):
-        get_auth_client = public_users_client()
-        response = get_auth_client.auth(
-            AuthNormalRequestModel(
-                username="test",
-                password="123456"
-            ))
-        assert response.status_code == HTTPStatus.UNAUTHORIZED
+        user_data = AuthNormalRequestModel(username="test", password="123456")
+        response = public_users_client().auth(user_data)
+
+        assert_status_code(HTTPStatus.BAD_REQUEST, response.status_code)
