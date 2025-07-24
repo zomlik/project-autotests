@@ -25,7 +25,6 @@ jobs:
           sed -i '/&default-back-environment/,/^$/!b;/^$/i \  PUBLIC_REGISTER_ENABLED: "True"' docker-compose.yml
           sed -i '/taiga-front:/,/TAIGA_SUBPATH:/!b;/TAIGA_SUBPATH:/a \      PUBLIC_REGISTER_ENABLED: "true"' docker-compose.yml
           ./launch-all.sh
-          ./taiga-manage.sh createsuperuser
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
