@@ -1,0 +1,3 @@
+2025-07-24 08:11:58,313 | HTTP_CLIENT | INFO | Make POST request to http://localhost:9000/api/v1/auth
+2025-07-24 08:11:58,318 | HTTP_CLIENT | INFO | Response 502 Bad Gateway from http://localhost:9000/api/v1/auth
+2025-07-24 08:11:58,319 | ASSERT | INFO | Check that response status code equals to 400

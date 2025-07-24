@@ -1,0 +1,3 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","53","Авторизация пользователя с не валидными данными","tests.api.auth","Thu Jul 24 08:11:58 GMT 2025","failed","Thu Jul 24 08:11:58 GMT 2025","TestAuth","test_auth","",""
+"","9","Регистрация пользователя с валидными данными","tests.api.auth","Thu Jul 24 08:11:58 GMT 2025","broken","Thu Jul 24 08:11:58 GMT 2025","TestRegistry","test_user_registry","",""
