@@ -36,6 +36,14 @@ jobs:
           HTTP_CLIENT.BASE_URL: "http://localhost:9000/api/v1"
           HTTP_CLIENT.TIMEOUT: 100
         run: pytest --alluredir allure-results
+      - name: Add Allure Env
+        working-directory: allure-results
+        if: always()
+        run: |
+           echo GIT_COMMIT_ID=${{ github.sha }} >> environment.properties
+           echo GIT_COMMIT_MESSAGE=$(git show -s --format=%s HEAD) >> environment.properties
+           echo GIT_COMMIT_TIME=$(git show -s --format=%ci HEAD) >> environment.properties
+        continue-on-error: true
 
       - name: Get Allure history
         uses: actions/checkout@v4
