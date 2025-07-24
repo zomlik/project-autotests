@@ -1,0 +1,1 @@
+[{"uid":"6290cd894e7abd81","name":"Регистрация пользователя с валидными данными","time":{"start":1753347195213,"stop":1753347195219,"duration":6},"status":"broken","severity":"normal"},{"uid":"a5477ac24dccf050","name":"Авторизация пользователя с не валидными данными","time":{"start":1753347195074,"stop":1753347195127,"duration":53},"status":"failed","severity":"normal"}]

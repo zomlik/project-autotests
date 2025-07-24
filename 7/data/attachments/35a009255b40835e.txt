@@ -1,0 +1,2 @@
+2025-07-24 08:53:15,214 | HTTP_CLIENT | INFO | Make POST request to http://localhost:9000/api/v1/auth/register
+2025-07-24 08:53:15,218 | HTTP_CLIENT | INFO | Response 502 Bad Gateway from http://localhost:9000/api/v1/auth/register

@@ -1,0 +1,3 @@
+INFO     HTTP_CLIENT:event_hooks.py:13 Make POST request to http://localhost:9000/api/v1/auth
+INFO     HTTP_CLIENT:event_hooks.py:21 Response 502 Bad Gateway from http://localhost:9000/api/v1/auth
+INFO     ASSERT:asserts.py:21 Check that response status code equals to 400
