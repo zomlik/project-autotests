@@ -1,8 +1,8 @@
 import allure
 from httpx import Response
 
-from api.api_client import ApiClient
-from api.public_builder import public_builder
+from api.core.api_client import ApiClient
+from api.core.public_builder import public_builder
 from models.auth.auth_model import AuthNormalRequestModel, AuthResponseModel
 from utils.routes import ApiRoutes
 

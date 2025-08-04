@@ -1,6 +1,6 @@
 from httpx import Client
 
-from api.event_hooks import log_request_event_hook, log_response_event_hook
+from api.core.event_hooks import log_request_event_hook, log_response_event_hook
 from config import settings
 
 
