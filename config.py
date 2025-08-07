@@ -9,6 +9,11 @@ class HttpClientConfig(BaseModel):
     timeout: float
 
 
+class PlaywrightConfig(BaseModel):
+    base_url: str
+    headless: bool
+
+
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file=Path(__file__).parent / ".env",
@@ -16,6 +21,7 @@ class Settings(BaseSettings):
         env_nested_delimiter="."
     )
     http_client: HttpClientConfig
+    playwright: PlaywrightConfig
 
 
 settings = Settings()

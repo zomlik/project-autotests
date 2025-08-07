@@ -5,13 +5,13 @@ import pytest
 
 from api.taiga.users.public_users_client import public_users_client
 from models.auth.auth_model import AuthNormalRequestModel
-from utils.allure_constants import Epic, Feature, Tag
+from utils.allure_constants import Epic, Feature
 from utils.asserts import assert_status_code
 
 
 @allure.epic(Epic.USERS)
 @allure.feature(Feature.AUTH)
-@allure.tag(Tag.API)
+@pytest.mark.api
 @pytest.mark.auth
 @pytest.mark.users
 class TestAuth:

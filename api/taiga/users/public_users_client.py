@@ -5,7 +5,7 @@ from api.core.api_client import ApiClient
 from api.core.public_builder import public_builder
 from models.auth.auth_model import AuthNormalRequestModel
 from models.auth.user_registry import PublicRegistryRequestModel
-from utils.routes import ApiRoutes
+from utils.url import ApiRoutes
 
 
 class PublicUsersClient(ApiClient):
