@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","433","ID-100: Регистрация пользователя с валидными данными","tests.api.auth","Fri Aug 08 16:08:23 GMT 2025","passed","Fri Aug 08 16:08:23 GMT 2025","TestRegistry","test_user_registry_api","",""
+"","42","ID-171: Авторизация пользователя с не валидными данными","tests.api.auth","Fri Aug 08 16:08:23 GMT 2025","passed","Fri Aug 08 16:08:23 GMT 2025","TestAuth","test_auth_api","",""
+"","1694","ID-94: Авторизация пользователя с валидными данными","tests.ui","Fri Aug 08 16:08:27 GMT 2025","passed","Fri Aug 08 16:08:29 GMT 2025","TestAuth","test_auth_ui","",""
