@@ -1,6 +1,7 @@
 import allure
 from playwright.sync_api import Page, expect
 
+from components.navbar_component import NavbarComponent
 from elements.button import Button
 from elements.link import Link
 from locators.login_page_locators import LoginPageLocator
@@ -15,6 +16,7 @@ class LoginPage(BasePage):
 
         self.login_button = Button(page, self.locator.LOGIN_BUTTON, "Login")
         self.create_account_link = Link(page, self.locator.CREATE_ACCOUNT_LINK, "Create Account Link")
+        self.nav_bar = NavbarComponent(page)
 
     @allure.step("Заполнить форму логина")
     def fill_login_form(self, login: str, password: str) -> None:

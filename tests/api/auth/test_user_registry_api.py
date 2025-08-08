@@ -1,19 +1,22 @@
 from http import HTTPStatus
 
 import allure
+import pytest
 
 from api.taiga.users.public_users_client import public_users_client
 from models.auth.user_registry import PublicRegistryRequestModel, RegistryResponseModel
-from utils.allure_constants import Epic, Feature, Tag
+from utils.allure_constants import Epic, Feature
 from utils.asserts import assert_status_code, validate_json_schema
 
 
 @allure.epic(Epic.USERS)
 @allure.feature(Feature.AUTH)
-@allure.tag(Tag.API)
+@pytest.mark.api
+@pytest.mark.registry
+@pytest.mark.user
 class TestRegistry:
-    @allure.title("Регистрация пользователя с валидными данными")
-    @allure.testcase("ID-100")
+    @allure.title("ID-100: Регистрация пользователя с валидными данными")
+    @pytest.mark.smoke
     def test_create_new_user(self):
         user_data = PublicRegistryRequestModel()
 

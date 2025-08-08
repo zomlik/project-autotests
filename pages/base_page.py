@@ -17,5 +17,5 @@ class BasePage:
         return self.page.reload(wait_until="domcontentloaded")
 
     @allure.step("Проверка текущего url")
-    def check_current_url(self, expected_url: Pattern[str]):
+    def check_current_url(self, expected_url: Pattern[str] | str) -> None:
         expect(self.page).to_have_url(expected_url)
