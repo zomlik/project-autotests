@@ -2,7 +2,7 @@
 Автотесты на Python для API (httpx) и UI (Playwright) 
 
 Страница проекта: https://taiga.io/  
-Allure-Report: https://zomlik.github.io/pet-project-autotests/
+Allure-Report: https://zomlik.github.io/project-autotests/
 
 ## 🛠 Технологии
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
@@ -29,7 +29,7 @@ PLAYWRIGHT.HEADLESS = False
 ## ⚙️ Установка
 1. Клонировать репозиторий:  
    ```bash
-   git clone https://github.com/zomlik/pet-project-autotests.git
+   git clone https://github.com/zomlik/project-autotests.git
    ```
 2. Установить зависимости:
    ```bash
@@ -46,7 +46,7 @@ PLAYWRIGHT.HEADLESS = False
    
 ## 📁 Структура проекта
 ```
-pet-project-autotest/
+project-autotest/
 ├──.github/                 # GitHub Workflows
 ├── api/                    # Логика для API автотестов
 ├── components/             # PageComponents
