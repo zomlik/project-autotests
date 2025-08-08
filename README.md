@@ -1,5 +1,7 @@
-# 🚀 Название проекта  
-Автотесты на Python для API (httpx) и UI (Playwright)  
+# 🚀 Описание проекта  
+Автотесты на Python для API (httpx) и UI (Playwright) 
+
+Страница проекта: https://taiga.io/  
 Allure-Report: https://zomlik.github.io/pet-project-autotests/
 
 ## 🛠 Технологии
