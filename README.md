@@ -31,15 +31,26 @@ PLAYWRIGHT.HEADLESS = False
    ```bash
    git clone https://github.com/zomlik/project-autotests.git
    ```
-2. Установить зависимости:
+2. Создать виртуальное окружение:  
+   Linux/MacOs
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```  
+   Windows
+   ```bash
+   python -m venv venv
+   venv\Scripts\activate
+   ```
+3. Установить зависимости:
    ```bash
    pip install -r requirements.txt
    ```
-3. Установить браузеры:
+4. Установить браузеры:
    ```bash
    playwright install
    ```
-4. Запуск тестов:
+5. Запуск тестов:
     ```bash
    pytest --alluredir allure-results
    ```
