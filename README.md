@@ -1,5 +1,6 @@
 # 🚀 Описание проекта  
-Автотесты на Python для API (httpx) и UI (Playwright) 
+Автотесты на Python для API (httpx) и UI (Playwright)  
+Цель: Получить практические навыки в автоматизации тестирования  
 
 Страница проекта: https://taiga.io/  
 Allure-Report: https://zomlik.github.io/project-autotests/
@@ -8,6 +9,7 @@ Allure-Report: https://zomlik.github.io/project-autotests/
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Pytest](https://img.shields.io/badge/Pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)
 ![HTTPX](https://img.shields.io/badge/HTTPX-00A98F?style=for-the-badge&logo=python&logoColor=white)
+![Pydantic](https://img.shields.io/badge/Pydantic-920000?style=for-the-badge&logo=pydantic&logoColor=white)
 ![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=for-the-badge&logo=playwright&logoColor=white)
 ![Allure](https://img.shields.io/badge/Allure-FF6A00?style=for-the-badge&logo=allure&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
