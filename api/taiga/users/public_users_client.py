@@ -9,6 +9,9 @@ from utils.url import ApiRoutes
 
 
 class PublicUsersClient(ApiClient):
+    """
+        Клиент для работы с /api/v1/auth/register
+    """
     @allure.step("Выполнение авторизации пользователя")
     def auth(self, user_data: AuthNormalRequestModel) -> Response:
         return self.post(ApiRoutes.AUTH, json=user_data.model_dump(by_alias=True))

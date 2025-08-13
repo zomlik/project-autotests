@@ -1,7 +1,7 @@
 from httpx import Client
 
 from api.core.event_hooks import log_request_event_hook, log_response_event_hook
-from api.taiga.auth_client import auth_client
+from api.taiga.auth.auth_client import auth_client
 from config import settings
 from models.auth.auth_model import AuthNormalRequestModel
 

@@ -13,9 +13,9 @@ from utils.asserts import assert_status_code, validate_json_schema
 @allure.feature(Feature.AUTH)
 @pytest.mark.api
 @pytest.mark.registry
-@pytest.mark.user
+@pytest.mark.users
 class TestRegistry:
-    @allure.title("ID-100: Регистрация пользователя с валидными данными")
+    @allure.title("Регистрация пользователя с валидными данными")
     @pytest.mark.smoke
     def test_create_new_user(self):
         user_data = PublicRegistryRequestModel()
