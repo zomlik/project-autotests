@@ -1,0 +1,7 @@
+2025-08-13 06:35:58,612 | HTTP_CLIENT | INFO | Make POST request to http://localhost:9000/api/v1/auth/register
+2025-08-13 06:35:59,002 | HTTP_CLIENT | INFO | Response 201 Created from http://localhost:9000/api/v1/auth/register
+2025-08-13 06:35:59,003 | ASSERT | INFO | Check that response status code equals to 201
+2025-08-13 06:35:59,005 | HTTP_CLIENT | INFO | Make POST request to http://localhost:9000/api/v1/auth
+2025-08-13 06:35:59,108 | HTTP_CLIENT | INFO | Response 200 OK from http://localhost:9000/api/v1/auth
+2025-08-13 06:35:59,109 | ASSERT | INFO | Check that response status code equals to 200
+2025-08-13 06:35:59,111 | ASSERT | INFO | Check that response response JSON-schema is valid 

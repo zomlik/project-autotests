@@ -1,0 +1,7 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","41","Авторизация пользователя с не валидными данными","tests.api.auth","Wed Aug 13 06:35:58 GMT 2025","passed","Wed Aug 13 06:35:58 GMT 2025","TestAuth","test_auth_api","",""
+"","1609","Авторизация пользователя с валидными данными","tests.ui","Wed Aug 13 06:36:01 GMT 2025","passed","Wed Aug 13 06:36:03 GMT 2025","TestAuth","test_auth_ui","",""
+"","122","Авторизация через email","tests.api.auth","Wed Aug 13 06:35:59 GMT 2025","passed","Wed Aug 13 06:35:59 GMT 2025","TestAuth","test_auth_api","",""
+"","400","Регистрация пользователя с валидными данными","tests.api.auth","Wed Aug 13 06:35:59 GMT 2025","passed","Wed Aug 13 06:35:59 GMT 2025","TestRegistry","test_user_registry_api","",""
+"","5","Авторизация с не валидным значением type","tests.api.auth","Wed Aug 13 06:35:59 GMT 2025","passed","Wed Aug 13 06:35:59 GMT 2025","TestAuth","test_auth_api","",""
+"","122","Авторизация через username","tests.api.auth","Wed Aug 13 06:35:59 GMT 2025","passed","Wed Aug 13 06:35:59 GMT 2025","TestAuth","test_auth_api","",""
