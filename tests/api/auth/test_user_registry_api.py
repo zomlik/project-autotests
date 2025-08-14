@@ -4,7 +4,10 @@ import allure
 import pytest
 
 from api.taiga.users.public_users_client import public_users_client
-from models.auth.user_registry import PublicRegistryRequestModel, RegistryResponseModel
+from models.auth.user_registry_models import (
+    PublicRegistryRequestModel,
+    RegistryResponseModel,
+)
 from utils.allure_constants import Epic, Feature
 from utils.asserts import assert_status_code, validate_json_schema
 

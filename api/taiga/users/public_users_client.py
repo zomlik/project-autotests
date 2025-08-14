@@ -3,8 +3,13 @@ from httpx import Response
 
 from api.core.api_client import ApiClient
 from api.core.public_builder import public_builder
-from models.auth.auth_model import AuthNormalRequestModel
-from models.auth.user_registry import PublicRegistryRequestModel
+from api.taiga.auth.auth_client import auth_client
+from models.auth.auth_models import (
+    AuthNormalRequestModel,
+    RefreshTokenRequestModel,
+    UserAuthData,
+)
+from models.auth.user_registry_models import PublicRegistryRequestModel
 from utils.url import ApiRoutes
 
 
@@ -19,6 +24,17 @@ class PublicUsersClient(ApiClient):
     @allure.step("Выполнение публичной регистрации пользователя")
     def create_public_user(self, payload: PublicRegistryRequestModel):
         return self.post(ApiRoutes.REGISTRY, json=payload.model_dump(by_alias=True))
+
+    @allure.step("Обновление токена")
+    def refresh_token(self, user_data: UserAuthData) -> Response:
+        """
+        Метод выполняет запрос на обновление токена
+        :param user_data: Данные для авторизации
+        :return: Объект Response с данными ответа
+        """
+        auth_response = auth_client().login(user_data)
+        token_data = RefreshTokenRequestModel(refresh=auth_response.auth_token)
+        return self.post(ApiRoutes.REFRESH_TOKEN, json=token_data.model_dump(by_alias=True))
 
 
 def public_users_client() -> PublicUsersClient:

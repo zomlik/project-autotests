@@ -16,6 +16,7 @@ class PublicRegistryRequestModel(BaseModel):
 class RegistryResponseModel(BaseModel):
     """Описание структуры ответа для регистрации"""
     accepted_terms: bool
+    auth_token: str
     big_photo: str | None
     bio: str
     color: str

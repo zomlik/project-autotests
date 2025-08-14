@@ -14,7 +14,9 @@ class Url(str, Enum):
 
 class ApiRoutes(str, Enum):
     AUTH = "/auth"
+    REFRESH_TOKEN = "/auth/refresh"
     REGISTRY = "auth/register"
+    USERS = "/users"
 
     def __str__(self):
         return self.value

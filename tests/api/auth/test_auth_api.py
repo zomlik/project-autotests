@@ -4,9 +4,9 @@ import allure
 import pytest
 
 from api.taiga.users.public_users_client import public_users_client
-from models.auth.auth_model import AuthNormalRequestModel
-from models.auth.user_registry import RegistryResponseModel
-from models.errors import LoginErrorResponse
+from models.auth.auth_models import AuthNormalRequestModel, RefreshTokenResponseModel
+from models.auth.user_registry_models import RegistryResponseModel
+from models.errors_models import LoginErrorResponse
 from utils.allure_constants import Epic, Feature
 from utils.asserts import assert_status_code, validate_json_schema
 
@@ -27,10 +27,10 @@ class TestAuth:
         assert_status_code(HTTPStatus.UNAUTHORIZED, response.status_code)
 
     @allure.title("Авторизация через username")
-    def test_login_username(self, user_session):
+    def test_login_username(self, get_user_session):
         login_data = AuthNormalRequestModel(
-            username=user_session.username,
-            password=user_session.password)
+            username=get_user_session.username,
+            password=get_user_session.password)
         response = public_users_client().auth(login_data)
         schema = RegistryResponseModel.model_validate_json(response.text)
 
@@ -38,10 +38,10 @@ class TestAuth:
         validate_json_schema(response.json(), schema.model_json_schema())
 
     @allure.title("Авторизация через email")
-    def test_login_email(self, user_session):
+    def test_login_email(self, get_user_session):
         login_data = AuthNormalRequestModel(
-            username=user_session.email,
-            password=user_session.password)
+            username=get_user_session.email,
+            password=get_user_session.password)
         response = public_users_client().auth(login_data)
         schema = RegistryResponseModel.model_validate_json(response.text)
 
@@ -49,14 +49,23 @@ class TestAuth:
         validate_json_schema(response.json(), schema.model_json_schema())
 
     @allure.title("Авторизация с не валидным значением type")
-    def test_invalid_value_type(self, user_session):
+    def test_invalid_value_type(self, get_user_session):
         login_data = AuthNormalRequestModel(
-            username=user_session.username,
-            password=user_session.password,
+            username=get_user_session.username,
+            password=get_user_session.password,
             type="123"
         )
         response = public_users_client().auth(login_data)
         schema = LoginErrorResponse.model_validate_json(response.text)
 
         assert_status_code(HTTPStatus.BAD_REQUEST, response.status_code)
+        validate_json_schema(response.json(), schema.model_json_schema())
+
+    @allure.title("Обновление действующего токена")
+    @pytest.mark.xfail("Ошибка 401: Пользователь не авторизован")
+    def test_refresh_token(self, get_user_session):
+        response = public_users_client().refresh_token(get_user_session)
+        schema = RefreshTokenResponseModel.model_validate_json(response.text)
+
+        assert_status_code(HTTPStatus.OK, response.status_code)
         validate_json_schema(response.json(), schema.model_json_schema())

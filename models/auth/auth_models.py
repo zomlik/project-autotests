@@ -1,6 +1,12 @@
 from pydantic import BaseModel, Field
 
 
+class UserAuthData(BaseModel):
+    email: str
+    username: str
+    password: str
+
+
 class AuthNormalRequestModel(BaseModel):
     """Описание структуры запроса на нормальную авторизацию"""
     username: str
