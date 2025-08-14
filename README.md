@@ -27,6 +27,10 @@ HTTP_CLIENT.TIMEOUT = 100
 
 PLAYWRIGHT.BASE_URL = "http://localhost:9000"
 PLAYWRIGHT.HEADLESS = False 
+
+SUPER_USER.USERNAME = "admin"
+SUPER_USER.PASSWORD = "admin"
+SUPER_USER.EMAIL = "admin@example.com"
 ```
 ## ⚙️ Установка
 1. Клонировать репозиторий:  
