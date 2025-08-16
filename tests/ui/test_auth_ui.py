@@ -12,11 +12,11 @@ from utils.url import Url
 class TestAuth:
 
     @allure.title("Авторизация пользователя с валидными данными")
-    def test_auth_new_user(self, user_session, login_page):
+    def test_auth_new_user(self, get_user_session, login_page):
         login_page.open(Url.AUTH)
         login_page.fill_login_form(
-            login=user_session.email,
-            password=user_session.password
+            login=get_user_session.email,
+            password=get_user_session.password
         )
         login_page.click_login_button()
         login_page.nav_bar.click_user_profile_link()

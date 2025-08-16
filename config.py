@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from pydantic import BaseModel
+from pydantic import BaseModel, FilePath
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -12,6 +12,14 @@ class HttpClientConfig(BaseModel):
 class PlaywrightConfig(BaseModel):
     base_url: str
     headless: bool
+    viewport_wight: int | None = None
+    viewport_height: int | None = None
+
+
+class User(BaseModel):
+    username: str
+    email: str
+    password: str
 
 
 class Settings(BaseSettings):
@@ -22,6 +30,11 @@ class Settings(BaseSettings):
     )
     http_client: HttpClientConfig
     playwright: PlaywrightConfig
+    browser_state_file: FilePath
+    super_user: User
+
+    def get_base_url(self) -> str:
+        return self.playwright.base_url
 
 
-settings = Settings()
+settings = Settings.initialize()
