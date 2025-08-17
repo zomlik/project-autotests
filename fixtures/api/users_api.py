@@ -1,18 +1,28 @@
 from http import HTTPStatus
 
 import pytest
+from pydantic import BaseModel
 
 from api.taiga.users.public_users_client import public_users_client
 from config import settings
 from models.auth.auth_models import UserAuthData
-from models.auth.user_registry_models import PublicRegistryRequestModel
+from models.auth.user_registry_models import (
+    PublicRegistryRequestModel,
+    RegistryResponseModel,
+)
 from utils.asserts import assert_status_code
 
 
-def create_new_random_user() -> UserAuthData:
+class UserFixture(BaseModel):
+    request: PublicRegistryRequestModel
+    response: RegistryResponseModel
+    auth: UserAuthData
+
+
+def create_new_random_user() -> UserFixture:
     """
     Функция создает случайного пользователя
-    :return: Модель UserAuthData с данными для авторизации
+    :return: Модель UserFixture с данными пользователя
     :raise: Ошибка AssertionError, если статус код ответа не соответствует HTTPStatus.CREATED (201)
     """
     request_data = PublicRegistryRequestModel()
@@ -26,15 +36,17 @@ def create_new_random_user() -> UserAuthData:
         password=request_data.password
     )
 
-    return user_data
+    return UserFixture(request=request_data,
+                       response=response.json(),
+                       auth=user_data)
 
 
 @pytest.fixture(scope="session")
-def get_user_session() -> UserAuthData:
+def get_user_session() -> UserFixture:
     """
     Фикстура pytest для создания пользователя с областью видимости 'session'.
     Пользователь будет создан один раз на всю тестовую сессию.
-    :return: Модель UserAuthData с данными для авторизации
+    :return: Модель UserFixture с данными для авторизации
     """
     response = create_new_random_user()
 
@@ -42,11 +54,11 @@ def get_user_session() -> UserAuthData:
 
 
 @pytest.fixture(scope="function")
-def get_new_user() -> UserAuthData:
+def get_new_user() -> UserFixture:
     """
     Фикстура pytest для создания пользователя с областью видимости 'function'.
     Новый пользователь будет создаваться для каждого теста.
-    :return: Модель UserAuthData с данными для авторизации
+    :return: Модель UserFixture с данными для авторизации
     """
     response = create_new_random_user()
 

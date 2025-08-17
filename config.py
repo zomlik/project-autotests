@@ -36,4 +36,4 @@ class Settings(BaseSettings):
         return self.playwright.base_url
 
 
-settings = Settings.initialize()
+settings = Settings()

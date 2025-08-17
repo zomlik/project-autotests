@@ -2,9 +2,10 @@ from pydantic import BaseModel, Field
 
 
 class UserAuthData(BaseModel):
-    email: str
+    email: str | None = None
     username: str
     password: str
+    type: str = Field(default="normal")
 
 
 class AuthNormalRequestModel(BaseModel):

@@ -18,8 +18,13 @@ class PublicUsersClient(ApiClient):
         Клиент для работы с /api/v1/auth/register
     """
     @allure.step("Выполнение авторизации пользователя")
-    def auth(self, user_data: AuthNormalRequestModel) -> Response:
-        return self.post(ApiRoutes.AUTH, json=user_data.model_dump(by_alias=True))
+    def auth(self, user_data: UserAuthData) -> Response:
+        request_data = AuthNormalRequestModel(username=user_data.username or user_data.email,
+                                              password=user_data.password,
+                                              type=user_data.type
+                                              )
+        response = auth_client().login_api(request_data)
+        return response
 
     @allure.step("Выполнение публичной регистрации пользователя")
     def create_public_user(self, payload: PublicRegistryRequestModel):

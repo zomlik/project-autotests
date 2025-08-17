@@ -26,7 +26,16 @@ jobs:
           sed -i '/taiga-front:/,/TAIGA_SUBPATH:/!b;/TAIGA_SUBPATH:/a \      PUBLIC_REGISTER_ENABLED: "true"' docker-compose.yml
           ./launch-all.sh
           timeout 120s bash -c 'while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost:9000/api/v1/)" != "200" ]]; do sleep 5; done' || false
-      
+
+      - name: Create Super User
+        run: |
+            cd taiga-docker
+            ./taiga-manage.sh shell <<EOF
+            from django.contrib.auth import get_user_model
+            User = get_user_model()
+            User.objects.create_superuser("${{ vars.SUPER_USER_USERNAME }}", "${{ vars.SUPER_USER_EMAIL }}", "${{ secrets.SUPER_USER_PASSWORD }}")
+            EOF
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -40,6 +49,11 @@ jobs:
 
           PLAYWRIGHT.BASE_URL: "http://localhost:9000"
           PLAYWRIGHT.HEADLESS: True
+
+          SUPER_USER.USERNAME: ${{ vars.SUPER_USER_USERNAME }}
+          SUPER_USER.EMAIL: ${{ vars.SUPER_USER_EMAIL }}
+          SUPER_USER.PASSWORD: ${{ secrets.SUPER_USER_PASSWORD }}
+
         run: pytest --alluredir allure-results
       - name: Add Allure Env
         working-directory: allure-results
