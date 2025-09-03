@@ -1,0 +1,3 @@
+2025-09-03 06:20:49,893 | HTTP_CLIENT | INFO | Make POST request to http://localhost:9000/api/v1/auth
+2025-09-03 06:20:49,910 | HTTP_CLIENT | INFO | Response 401 Unauthorized from http://localhost:9000/api/v1/auth
+2025-09-03 06:20:49,910 | ASSERT | INFO | Check that response status code equals to 401
