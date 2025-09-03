@@ -14,7 +14,7 @@ class ApiClient:
         self.client = client
 
     @allure.step("Выполнение GET-Запроса")
-    def get(self, url: URL | str, params: QueryParams | None = None) -> Response:
+    def get(self, url: URL | str, params: dict[str, Any] | None = None) -> Response:
         """
         Выполняет GET-запрос.
 
@@ -22,7 +22,8 @@ class ApiClient:
         :param params: Параметры запроса (query parameters)
         :return: Объект Response с данными ответа
         """
-        return self.client.get(url, params=params)
+        params = {k: v for k, v in (params or {}).items() if v is not None}
+        return self.client.get(url, params=QueryParams(params))
 
     @allure.step("Выполнение POST-Запроса")
     def post(self, url: str, json: Any | None = None) -> Response:

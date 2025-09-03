@@ -6,7 +6,7 @@ import pytest
 from api.taiga.users.public_users_client import public_users_client
 from models.auth.auth_models import RefreshTokenResponseModel, UserAuthData
 from models.auth.user_registry_models import RegistryResponseModel
-from models.errors_models import LoginErrorResponse
+from models.errors_models import LoginErrorResponseModel
 from utils.allure_constants import Epic, Feature
 from utils.asserts import assert_status_code, validate_json_schema
 
@@ -27,6 +27,7 @@ class TestAuth:
         assert_status_code(HTTPStatus.UNAUTHORIZED, response.status_code)
 
     @allure.title("Авторизация через username")
+    @pytest.mark.smoke
     def test_login_username(self, get_user_session):
         response = public_users_client().auth(get_user_session.auth)
         schema = RegistryResponseModel.model_validate_json(response.text)
@@ -35,6 +36,7 @@ class TestAuth:
         validate_json_schema(response.json(), schema.model_json_schema())
 
     @allure.title("Авторизация через email")
+    @pytest.mark.smoke
     def test_login_email(self, get_user_session):
         request_data = UserAuthData(username=get_user_session.auth.email,
                                     password=get_user_session.auth.password)
@@ -45,6 +47,7 @@ class TestAuth:
         validate_json_schema(response.json(), schema.model_json_schema())
 
     @allure.title("Авторизация с не валидным значением type")
+    @pytest.mark.regression
     def test_invalid_value_type(self, get_user_session):
         login_data = UserAuthData(
             username=get_user_session.auth.username,
@@ -52,7 +55,7 @@ class TestAuth:
             type=""
         )
         response = public_users_client().auth(login_data)
-        schema = LoginErrorResponse.model_validate_json(response.text)
+        schema = LoginErrorResponseModel.model_validate_json(response.text)
 
         assert_status_code(HTTPStatus.BAD_REQUEST, response.status_code)
         validate_json_schema(response.json(), schema.model_json_schema())
