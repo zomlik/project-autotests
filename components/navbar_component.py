@@ -1,3 +1,4 @@
+import allure
 from playwright.sync_api import Page
 
 from components.base_component import BaseComponent
@@ -15,11 +16,10 @@ class NavbarComponent(BaseComponent):
         self.projects_link = Link(page, self.locators.PROJECTS_LINK, "Projects")
         self.profile_link = Link(page, self.locators.USER_PROFILE_LINK, "User profile link")
 
+    @allure.step("Клик на лого")
     def click_homepage_logo(self) -> None:
         self.homepage.click()
 
-    def click_projects_link(self) -> None:
-        self.projects_link.click()
-
-    def click_user_profile_link(self):
+    @allure.step("Клик на ссылку профиля пользователя")
+    def click_user_profile_link(self) -> None:
         self.profile_link.click()

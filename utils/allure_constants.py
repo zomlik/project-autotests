@@ -7,6 +7,7 @@ class Epic(str, Enum):
 
 class Feature(str, Enum):
     AUTH = "Auth"
+    REGISTER = "Register"
     USER = "User"
 
     def __str__(self):

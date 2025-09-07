@@ -8,7 +8,6 @@ from utils.url import Url
 @allure.feature(Feature.AUTH)
 @pytest.mark.ui
 @pytest.mark.users
-@pytest.mark.smoke
 class TestAuth:
 
     @allure.title("Авторизация пользователя с валидными данными")

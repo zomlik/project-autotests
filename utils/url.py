@@ -4,6 +4,7 @@ from enum import Enum
 class Url(str, Enum):
     AUTH = "./login"
     PROFILE = "./profile"
+    REGISTER = "./register"
 
     def __str__(self):
         return self.value
