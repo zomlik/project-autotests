@@ -1,0 +1,4 @@
+2025-09-07 08:56:48,910 | HTTP_CLIENT | INFO | Make POST request to http://localhost:9000/api/v1/auth
+2025-09-07 08:56:49,011 | HTTP_CLIENT | INFO | Response 200 OK from http://localhost:9000/api/v1/auth
+2025-09-07 08:56:49,012 | HTTP_CLIENT | INFO | Make POST request to http://localhost:9000/api/v1/auth/refresh
+2025-09-07 08:56:49,019 | HTTP_CLIENT | INFO | Response 401 Unauthorized from http://localhost:9000/api/v1/auth/refresh

@@ -1,0 +1,6 @@
+2025-09-07 08:56:49,725 | HTTP_CLIENT | INFO | Make POST request to http://localhost:9000/api/v1/auth
+2025-09-07 08:56:49,819 | HTTP_CLIENT | INFO | Response 200 OK from http://localhost:9000/api/v1/auth
+2025-09-07 08:56:49,821 | HTTP_CLIENT | INFO | Make GET request to http://localhost:9000/api/v1/users/0
+2025-09-07 08:56:49,829 | HTTP_CLIENT | INFO | Response 404 Not Found from http://localhost:9000/api/v1/users/0
+2025-09-07 08:56:49,829 | ASSERT | INFO | Check that response status code equals to 404
+2025-09-07 08:56:49,829 | ASSERT | INFO | Check that response response JSON-schema is valid 
