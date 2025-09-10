@@ -1,0 +1,4 @@
+INFO     HTTP_CLIENT:event_hooks.py:13 Make POST request to http://localhost:9000/api/v1/auth
+INFO     HTTP_CLIENT:event_hooks.py:21 Response 200 OK from http://localhost:9000/api/v1/auth
+INFO     HTTP_CLIENT:event_hooks.py:13 Make POST request to http://localhost:9000/api/v1/auth/refresh
+INFO     HTTP_CLIENT:event_hooks.py:21 Response 401 Unauthorized from http://localhost:9000/api/v1/auth/refresh
