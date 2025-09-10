@@ -17,7 +17,7 @@ def browser_type_launch_args(browser_type_launch_args):
     }
 
 
-@pytest.fixture()
+@pytest.fixture(scope="session")
 def browser_context_args(browser_context_args):
     """
     Фикстура для настройки контекста браузера
@@ -31,21 +31,6 @@ def browser_context_args(browser_context_args):
     }
 
 
-def initialize_playwright(
-        browser: Browser,
-        browser_context_args: dict[str, str],
-) -> BrowserContext:
-    """
-    Инициализирует контекст Playwright и создаёт новую страницу
-    :param browser: Экземпляр браузера из фикстуры pytest-playwright
-    :param browser_context_args: Аргументы контекста браузера
-    :return: Новая страница браузера
-    """
-    context = browser.new_context(**browser_context_args, base_url=settings.get_base_url())
-    yield context.new_page()
-    browser.close()
-
-
 @pytest.fixture()
 def get_browser(browser: Browser, browser_context_args: dict) -> Page:
     """
@@ -54,4 +39,10 @@ def get_browser(browser: Browser, browser_context_args: dict) -> Page:
     :param browser_context_args: Аргументы контекста браузера
     :return: Готовая к использованию страница браузера с настроенным контекстом
     """
-    yield from initialize_playwright(browser, browser_context_args)
+    context = browser.new_context(
+        **browser_context_args,
+        base_url=settings.get_base_url()
+    )
+    page = context.new_page()
+    yield page
+    context.close()
