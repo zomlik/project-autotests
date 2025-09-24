@@ -8,12 +8,11 @@ from models.auth.user_registry_models import (
     PublicRegistryRequestModel,
     RegistryResponseModel,
 )
-from utils.allure_constants import Epic, Feature
+from utils.allure_constants import Feature
 from utils.asserts import assert_status_code, validate_json_schema
 
 
-@allure.epic(Epic.USERS)
-@allure.feature(Feature.AUTH)
+@allure.feature(Feature.REGISTER)
 @pytest.mark.api
 @pytest.mark.registry
 @pytest.mark.users

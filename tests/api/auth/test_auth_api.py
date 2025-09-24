@@ -7,11 +7,10 @@ from api.taiga.users.public_users_client import public_users_client
 from models.auth.auth_models import RefreshTokenResponseModel, UserAuthData
 from models.auth.user_registry_models import RegistryResponseModel
 from models.errors_models import LoginErrorResponseModel
-from utils.allure_constants import Epic, Feature
+from utils.allure_constants import Feature
 from utils.asserts import assert_status_code, validate_json_schema
 
 
-@allure.epic(Epic.USERS)
 @allure.feature(Feature.AUTH)
 @pytest.mark.api
 @pytest.mark.auth
@@ -61,6 +60,7 @@ class TestAuth:
         validate_json_schema(response.json(), schema.model_json_schema())
 
     @allure.title("Обновление действующего токена")
+    @pytest.mark.smoke
     @pytest.mark.xfail(reason="Ошибка 401: Пользователь не авторизован")
     def test_refresh_token(self, get_user_session):
         response = public_users_client().refresh_token(get_user_session.auth)

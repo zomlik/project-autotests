@@ -121,9 +121,20 @@ class PrivateUsersClient(ApiClient):
         return self.delete(url=f"{ApiRoutes.USERS}/{user_id}")
 
     def cancel_user_account(self, user_id: int, payload) -> Response:
+        """
+        Метод блокирует пользователя по id (нужен пользователь с правами admin)
+        :param user_id: id пользователя
+        :param payload: Данные пользователя
+        :return: Объект Response с данными ответа
+        """
         return self.post(url=f"{ApiRoutes.USERS}/{user_id}", json=payload)
 
     def change_user_avatar(self, file) -> Response:
+        """
+        Метод обновляет аватар пользователя
+        :param file: Файл с изображением
+        :return: Объект Response с данными ответа
+        """
         return self.post(url=f"{ApiRoutes.USERS}/change_avatar")
 
     def remove_user_avatar(self) -> Response:
@@ -133,7 +144,13 @@ class PrivateUsersClient(ApiClient):
         return self.post(url=f"{ApiRoutes.USERS}/change_email", json={"email_token": email_token})
 
     def change_user_password(self, payload: ChangePasswordRequestModel) -> Response:
-        return self.post(url=f"{ApiRoutes.USERS}/change_password", json=payload)
+        """
+        Метод обновления пароля пользователя
+        :param payload: Данные для обновления пароля
+        :return: Объект Response с данными ответа
+        """
+        return self.post(url=f"{ApiRoutes.USERS}/change_password",
+                         json=payload.model_dump(by_alias=True))
 
     def recovery_user_password(self, username: str):
         return self.post(url=f"{ApiRoutes.USERS}/password_recovery", json={"username": username})

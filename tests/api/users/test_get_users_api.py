@@ -10,7 +10,7 @@ from utils.allure_constants import Feature
 from utils.asserts import assert_status_code, validate_json_schema
 
 
-@allure.feature(Feature.USER)
+@allure.feature(Feature.USERS)
 @pytest.mark.api
 @pytest.mark.users
 class TestGetUsers:
@@ -40,4 +40,13 @@ class TestGetUsers:
         schema = ErrorMessageModel.model_validate_json(response.text)
 
         assert_status_code(HTTPStatus.NOT_FOUND, response.status_code)
+        validate_json_schema(response.json(), schema.model_json_schema())
+
+    @allure.title("Получение текущего пользователя")
+    @pytest.mark.smoke
+    def test_get_current_user(self, get_user_session):
+        response = private_users_client(get_user_session.auth).get_me()
+        schema = UserResponseIdModel.model_validate_json(response.text)
+
+        assert_status_code(response.status_code, HTTPStatus.OK)
         validate_json_schema(response.json(), schema.model_json_schema())
