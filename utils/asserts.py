@@ -37,3 +37,14 @@ def validate_json_schema(instance: Any, schema: dict) -> None:
         instance=instance,
         format_checker=Draft202012Validator
     )
+
+
+def assert_equal(actual: Any, expected: Any) -> None:
+    """
+    Проверяет, что фактическое значение равно ожидаемому
+    :param actual: Ожидаемое значение
+    :param expected: Фактическое значение
+    :return: AssertionError Если фактическое значение не равно ожидаемому
+    """
+    logger.info(f"Check that actual: {actual} equal expected: {expected}")
+    assert actual == expected

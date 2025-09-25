@@ -16,3 +16,4 @@ class TokenErrorResponseModel(BaseModel):
 class ErrorMessageModel(BaseModel):
     """Описание общей структуры для ошибок"""
     _error_message: str
+    _error_type: str
