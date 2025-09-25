@@ -1,0 +1,4 @@
+2025-09-25 05:37:04,943 | HTTP_CLIENT | INFO | Make POST request to http://localhost:9000/api/v1/auth
+2025-09-25 05:37:05,038 | HTTP_CLIENT | INFO | Response 200 OK from http://localhost:9000/api/v1/auth
+2025-09-25 05:37:05,039 | ASSERT | INFO | Check that response status code equals to 200
+2025-09-25 05:37:05,040 | ASSERT | INFO | Check that response response JSON-schema is valid 

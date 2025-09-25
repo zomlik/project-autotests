@@ -1,0 +1,7 @@
+INFO     HTTP_CLIENT:event_hooks.py:13 Make POST request to http://localhost:9000/api/v1/auth
+INFO     HTTP_CLIENT:event_hooks.py:21 Response 200 OK from http://localhost:9000/api/v1/auth
+INFO     HTTP_CLIENT:event_hooks.py:13 Make POST request to http://localhost:9000/api/v1/users/change_password
+INFO     HTTP_CLIENT:event_hooks.py:21 Response 400 Bad Request from http://localhost:9000/api/v1/users/change_password
+INFO     ASSERT:asserts.py:21 Check that response status code equals to 400
+INFO     ASSERT:asserts.py:49 Check that actual: Invalid current password equal expected: Invalid current password
+INFO     ASSERT:asserts.py:34 Check that response response JSON-schema is valid

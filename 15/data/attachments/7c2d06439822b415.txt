@@ -1,0 +1,8 @@
+2025-09-25 05:37:05,647 | HTTP_CLIENT | INFO | Make POST request to http://localhost:9000/api/v1/auth/register
+2025-09-25 05:37:05,785 | HTTP_CLIENT | INFO | Response 201 Created from http://localhost:9000/api/v1/auth/register
+2025-09-25 05:37:05,785 | ASSERT | INFO | Check that response status code equals to 201
+2025-09-25 05:37:05,787 | HTTP_CLIENT | INFO | Make POST request to http://localhost:9000/api/v1/auth
+2025-09-25 05:37:05,881 | HTTP_CLIENT | INFO | Response 200 OK from http://localhost:9000/api/v1/auth
+2025-09-25 05:37:05,883 | HTTP_CLIENT | INFO | Make POST request to http://localhost:9000/api/v1/users/change_password
+2025-09-25 05:37:06,053 | HTTP_CLIENT | INFO | Response 204 No Content from http://localhost:9000/api/v1/users/change_password
+2025-09-25 05:37:06,054 | ASSERT | INFO | Check that response status code equals to 204

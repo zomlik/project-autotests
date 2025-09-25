@@ -1,0 +1,9 @@
+2025-09-25 05:37:06,458 | HTTP_CLIENT | INFO | Make POST request to http://localhost:9000/api/v1/auth/register
+2025-09-25 05:37:06,594 | HTTP_CLIENT | INFO | Response 201 Created from http://localhost:9000/api/v1/auth/register
+2025-09-25 05:37:06,594 | ASSERT | INFO | Check that response status code equals to 201
+2025-09-25 05:37:06,596 | HTTP_CLIENT | INFO | Make POST request to http://localhost:9000/api/v1/auth
+2025-09-25 05:37:06,690 | HTTP_CLIENT | INFO | Response 200 OK from http://localhost:9000/api/v1/auth
+2025-09-25 05:37:06,691 | HTTP_CLIENT | INFO | Make POST request to http://localhost:9000/api/v1/users/password_recovery
+2025-09-25 05:37:06,782 | HTTP_CLIENT | INFO | Response 200 OK from http://localhost:9000/api/v1/users/password_recovery
+2025-09-25 05:37:06,782 | ASSERT | INFO | Check that response status code equals to 200
+2025-09-25 05:37:06,782 | ASSERT | INFO | Check that actual: Mail sent successfully! equal expected: Mail sent successfully!
