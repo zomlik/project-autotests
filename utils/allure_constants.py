@@ -9,6 +9,7 @@ class Feature(str, Enum):
     AUTH = "Auth"
     REGISTER = "Register"
     USERS = "Users"
+    WEBHOOKS = "Webhooks"
 
     def __str__(self):
         return self.value

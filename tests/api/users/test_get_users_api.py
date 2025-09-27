@@ -5,7 +5,7 @@ import pytest
 
 from api.taiga.users.private_user_client import private_users_client
 from models.errors_models import ErrorMessageModel
-from models.user_models import ListUserResponseModel, UserResponseIdModel
+from models.users.user_models import ListUserResponseModel, UserResponseIdModel
 from utils.allure_constants import Feature
 from utils.asserts import assert_status_code, validate_json_schema
 

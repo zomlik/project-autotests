@@ -31,6 +31,16 @@ class UserResponseIdModel(BaseModel):
     verified_email: bool
 
 
+class Owner(BaseModel):
+    big_photo: str | None
+    full_name_display: str
+    gravatar_id: str
+    id: int
+    is_active: bool
+    photo: str | None
+    username: str
+
+
 class UserResponseModel(BaseModel):
     """Описание структуры ответа для списка пользователей"""
     id: int

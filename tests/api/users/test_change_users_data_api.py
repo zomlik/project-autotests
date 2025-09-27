@@ -5,7 +5,7 @@ import pytest
 
 from api.taiga.users.private_user_client import private_users_client
 from models.errors_models import ErrorMessageModel
-from models.user_models import ChangePasswordRequestModel
+from models.users.user_models import ChangePasswordRequestModel
 from utils.allure_constants import Feature
 from utils.asserts import assert_equal, assert_status_code, validate_json_schema
 
@@ -42,7 +42,7 @@ class TestUserSettings:
 
     @allure.title("Изменение пароля на пароль длинной менее 6 символов")
     @pytest.mark.regression
-    def test_password(self, get_user_session):
+    def test_new_password_length(self, get_user_session):
         payload_data = ChangePasswordRequestModel(
             current_password=get_user_session.request.password,
             password="123"
@@ -69,7 +69,7 @@ class TestUserSettings:
         assert_equal(response.json()["_error_message"], "Invalid current password")
         validate_json_schema(response.json(), schema.model_json_schema())
 
-    @allure.title("Восстановление пароля пользователя")
+    @allure.title("Отправка запроса на восстановления пароля пользователя")
     @pytest.mark.smoke
     def test_password_recovery(self, get_new_user):
         response = private_users_client(get_new_user.auth).recovery_user_password(
